@@ -33,6 +33,8 @@ def main():
     "Park": ["Coffee Shop", "Museum", "Library"]
     }
 
+    gui.show_gui(adjacency_list) # pass adjacency list to the GUI
+
     # Placeholder paths (once Kiara's GUI is completed, user input will select BFS, DFS or Dijkstra and choose a path) important!!!! 
     path = bfs_search(start_location, goal_location, adjacency_list) # use bfs on path
     if path: # placeholder prints (will be displayed in Kiara's GUI) ------------------------------------ important!!!!
@@ -49,7 +51,6 @@ def main():
 # Call main
 if __name__ == "__main__":
     main()
-    gui.show_gui()
                     
 
 
