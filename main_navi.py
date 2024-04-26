@@ -11,6 +11,7 @@
 ********************************************************************************"""  
 from algorithms import bfs_search # Import external function BFS
 from algorithms import dfs_search # Import external function DFS
+import gui # Call the GUI file
 
 # Main function for execution
 def main():
@@ -48,6 +49,7 @@ def main():
 # Call main
 if __name__ == "__main__":
     main()
+    gui.show_gui()
                     
 
 
