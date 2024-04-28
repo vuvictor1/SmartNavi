@@ -1,3 +1,14 @@
+"""********************************************************************************  
+   Author Information:
+   Kiara Guerra
+
+   Other Authors: 
+   Victor Vu 
+
+   Program Information:
+   This File: gui.py
+   Description: Graphical output of pathfinding algorithims. Collects userinput. 
+********************************************************************************"""  
 from tkinter import Tk, Canvas, Button, PhotoImage # GUI elements
 from pathlib import Path # Find path of files
 
@@ -9,21 +20,22 @@ def show_gui(adjacency_list):
     def relative_to_assets(path: str) -> Path: # find the file paths
         return ASSETS_PATH / Path(path)
 
-    window = Tk()
-    window.geometry("700x550")
-    window.configure(bg="#FFFFFF")
+    window = Tk() # create new window
+    window.geometry("700x550") # set size
+    window.configure(bg="#FFFFFF") # set color
 
+    # Canvas to draw gui elements on
     canvas = Canvas(
         window,
         bg="#FFFFFF",
         height=550,
         width=700,
-        bd=0,
-        highlightthickness=0,
-        relief="ridge"
+        bd=0, # no border
+        highlightthickness=0, # no highlight
+        relief="ridge" # ridge like border
     )
 
-    canvas.place(x=0, y=0)
+    canvas.place(x=0, y=0) # place canvas in window
     canvas.create_rectangle(
         0.0,
         0.0,
