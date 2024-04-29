@@ -22,13 +22,13 @@ def bfs_search(start_location, goal_location, adjacency_list): # (ex: throwing a
         current_location = queue.popleft() # pop current off the queue
         
         if current_location == goal_location: # if goal is reached
-            path = [] # construct the path
+            path_bfs = [] # construct the path
             while current_location != start_location:
-                path.append(current_location) # current location is now part of path
+                path_bfs.append(current_location) # current location is now part of path
                 current_location = parent[current_location] # track path traveled 
-            path.append(start_location) # start is also part of path
-            path.reverse() # reverse from goal to find correct start order
-            return path
+            path_bfs.append(start_location) # start is also part of path
+            path_bfs.reverse() # reverse from goal to find correct start order
+            return path_bfs
 
         # Find neighboring locations
         for neighbor_location in adjacency_list[current_location]:
@@ -50,13 +50,13 @@ def dfs_search(start_location, goal_location, adjacency_list): # (ex: go far but
         current_location = stack.pop() # pop current off the stack
 
         if current_location == goal_location: # if goal is reached
-            path = [] # construct the path
+            path_dfs = [] # construct the path
             while current_location != start_location:
-                path.append(current_location) # current location is now part of path
+                path_dfs.append(current_location) # current location is now part of path
                 current_location = parent[current_location] # track path traveled 
-            path.append(start_location) # start is also part of path
-            path.reverse() # reverse from goal to find correct start order
-            return path
+            path_dfs.append(start_location) # start is also part of path
+            path_dfs.reverse() # reverse from goal to find correct start order
+            return path_dfs
 
         # Find neighboring locations
         for neighbor_location in adjacency_list[current_location]:
