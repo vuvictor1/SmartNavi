@@ -7,7 +7,7 @@
 
    Program Information:
    This File: gui.py
-   Description: Graphical output of pathfinding algorithims. Collects userinput. 
+   Description: Graphical output of pathfinding algorithims. Collects user input. 
 ********************************************************************************"""  
 from tkinter import Tk, Canvas, Button, PhotoImage # GUI elements
 from pathlib import Path # Find path of files
@@ -15,7 +15,7 @@ from algorithms import bfs_search # Import external function BFS
 from algorithms import dfs_search # Import external function DFS
 
 # Function to output GUI
-def show_gui(adjacency_list):
+def show_gui(adjacency_list): # adjacency list contains nodes and neighbors
     OUTPUT_PATH = Path(__file__).parent
     ASSETS_PATH = OUTPUT_PATH / "assets" / "frame0"
 
@@ -61,7 +61,7 @@ def show_gui(adjacency_list):
         image=button_image_1,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("Accessibility Button clicked, WIP"),
+        command=lambda: print("Accessibility Button clicked, WIP"), # execute line when pressed (not finished) important!!!!!!
         relief="flat"
     )
     button_1.place( # button placement
@@ -78,7 +78,7 @@ def show_gui(adjacency_list):
         image=button_image_2,    
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: display_result(canvas), # Not finished wait for Kim's part. important!!!!!!!!!!
+        command=lambda: display_result(canvas), # Not finished wait for Kim's part. ---------------important!!!!!!!!!!
         relief="flat" 
     )
     button_2.place(
@@ -95,7 +95,7 @@ def show_gui(adjacency_list):
         image=button_image_3,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: display_result(canvas, dfs_search(start_location, goal_location, adjacency_list)), # call DFS and display
+        command=lambda: display_result(canvas, dfs_search(start_location, goal_location, adjacency_list), "DFS"), # call DFS, assign name and display
         relief="flat"
     )
     button_3.place(
@@ -112,7 +112,7 @@ def show_gui(adjacency_list):
         image=button_image_4,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: display_result(canvas, bfs_search(start_location, goal_location, adjacency_list)), # call BFS and display
+        command=lambda: display_result(canvas, bfs_search(start_location, goal_location, adjacency_list,), "BFS"), # call BFS, assign name and display
         relief="flat"
     )
     button_4.place(
@@ -127,7 +127,7 @@ def show_gui(adjacency_list):
         423.0,
         71.0,
         anchor="nw",
-        text="Select start and end node",
+        text="Select start and end node:",
         fill="#000000",
         font=("JostRoman Bold", 16 * -1)
     )
@@ -149,19 +149,19 @@ def show_gui(adjacency_list):
         image=image_image_1
     )
     window.resizable(False, False) # prevent window from resizing 
-    window.mainloop()
+    window.mainloop() # keeps the GUI running until closed by user
 
-# Placeholder locations (user input will be included later) ------------------------- important!!!!
+# Placeholder locations (user input will collected in selection menu later) ------------------------- important!!!!
 start_location = "Library"
 goal_location = "Park"
 
 # Function to update the canvas search results
-def display_result(canvas, path):
+def display_result(canvas, path, algorithm_name): # expects both BFS and DFS paths
     if path:
-        result = f"Path found within {len(path)-1} stops: {path}"
+        result = f"{algorithm_name}: Path found within {len(path)-1} stops: {path}" # print out # of stops and shows path
     else:
-        result = "No path found."
-    canvas.delete("result_text") # clear previous text on the canvas
+        result = f"{algorithm_name}: No path found."
+    canvas.delete("result_text") # clear previous text on the 
     # Display the new result text
     canvas.create_text(
         100, 
@@ -170,6 +170,6 @@ def display_result(canvas, path):
         text=result,
         fill="#000000",
         font=("Helvetica", 12),
-        tags="result_text"
+        tags="result_text" # tagged to allow manipulation later
     )
  
