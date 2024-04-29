@@ -11,6 +11,8 @@
 ********************************************************************************"""  
 from tkinter import Tk, Canvas, Button, PhotoImage # GUI elements
 from pathlib import Path # Find path of files
+from algorithms import bfs_search # Import external function BFS
+from algorithms import dfs_search # Import external function DFS
 
 # Function to output GUI
 def show_gui(adjacency_list):
@@ -27,56 +29,56 @@ def show_gui(adjacency_list):
     # Canvas to draw gui elements on
     canvas = Canvas(
         window,
-        bg="#FFFFFF",
+        bg="#FFFFFF", # color
         height=550,
         width=700,
         bd=0, # no border
         highlightthickness=0, # no highlight
         relief="ridge" # ridge like border
     )
-
     canvas.place(x=0, y=0) # place canvas in window
-    canvas.create_rectangle(
-        0.0,
-        0.0,
-        700.0,
-        55.0,
+    canvas.create_rectangle( # new shape to use 
+        0.0, # place at top
+        0.0, # move it left
+        700.0, # width 
+        55.0, # height
         fill="#FD8B21",
-        outline=""
+        outline="" # no outline
     )
-
-    canvas.create_text(
-        24.0,
-        9.0,
-        anchor="nw",
+    canvas.create_text( # write text in canvas
+        24.0, # x coordinate
+        9.0, # y coordinate 
+        anchor="nw", # anchor text at northwest
         text="Smart Campus Navigation System ",
         fill="#000000",
         font=("JosefinSansRoman Bold", 32 * -1)
     )
 
+    # Accessibility Button
     button_image_1 = PhotoImage(
-        file=relative_to_assets("button_1.png"))
+        file=relative_to_assets("button_1.png")) # import assets for button1
     button_1 = Button(
         image=button_image_1,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_1 clicked"),
+        command=lambda: print("Accessibility Button clicked, WIP"),
         relief="flat"
     )
-    button_1.place(
+    button_1.place( # button placement
         x=471.0,
         y=394.0,
         width=50.0,
         height=53.0
     )
 
+    # Dijkstra's Algorithm Button
     button_image_2 = PhotoImage(
         file=relative_to_assets("button_2.png"))
     button_2 = Button(
-        image=button_image_2,
+        image=button_image_2,    
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_2 clicked"),
+        command=lambda: display_result(canvas), 
         relief="flat"
     )
     button_2.place(
@@ -86,13 +88,14 @@ def show_gui(adjacency_list):
         height=50.0
     )
 
+    # Depth-First Search Button
     button_image_3 = PhotoImage(
         file=relative_to_assets("button_3.png"))
     button_3 = Button(
         image=button_image_3,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_3 clicked"),
+        command=lambda: display_result(canvas, dfs_search(start_location, goal_location, adjacency_list)), # call DFS and display
         relief="flat"
     )
     button_3.place(
@@ -102,13 +105,14 @@ def show_gui(adjacency_list):
         height=50.0
     )
 
+    # Breadth-First Search Button
     button_image_4 = PhotoImage(
         file=relative_to_assets("button_4.png"))
     button_4 = Button(
         image=button_image_4,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_4 clicked"),
+        command=lambda: display_result(canvas, bfs_search(start_location, goal_location, adjacency_list)),  # call BFS and display
         relief="flat"
     )
     button_4.place(
@@ -118,6 +122,7 @@ def show_gui(adjacency_list):
         height=50.0
     )
 
+    # Selection Menu 
     canvas.create_text(
         423.0,
         71.0,
@@ -126,7 +131,6 @@ def show_gui(adjacency_list):
         fill="#000000",
         font=("JostRoman Bold", 16 * -1)
     )
-
     canvas.create_text(
         424.0,
         143.0,
@@ -136,6 +140,7 @@ def show_gui(adjacency_list):
         font=("JostRoman Bold", 16 * -1)
     )
 
+    # Main Map
     image_image_1 = PhotoImage(
         file=relative_to_assets("image_1.png"))
     image_1 = canvas.create_image(
@@ -145,3 +150,26 @@ def show_gui(adjacency_list):
     )
     window.resizable(False, False)
     window.mainloop()
+
+# Placeholder locations (user input will be included later) ------------------------- important!!!!
+start_location = "Library"
+goal_location = "Park"
+
+# Function to update the canvas search results
+def display_result(canvas, path):
+    if path:
+        result = f"Path found within {len(path)-1} stops: {path}"
+    else:
+        result = "No path found."
+    canvas.delete("result_text") # clear previous text on the canvas
+    # Display the new result text
+    canvas.create_text(
+        100, 
+        100, 
+        anchor="sw",
+        text=result,
+        fill="#000000",
+        font=("Helvetica", 12),
+        tags="result_text"
+    )
+ 
