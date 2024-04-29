@@ -78,8 +78,8 @@ def show_gui(adjacency_list):
         image=button_image_2,    
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: display_result(canvas), 
-        relief="flat"
+        command=lambda: display_result(canvas), # Not finished wait for Kim's part. important!!!!!!!!!!
+        relief="flat" 
     )
     button_2.place(
         x=610.0,
@@ -112,7 +112,7 @@ def show_gui(adjacency_list):
         image=button_image_4,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: display_result(canvas, bfs_search(start_location, goal_location, adjacency_list)),  # call BFS and display
+        command=lambda: display_result(canvas, bfs_search(start_location, goal_location, adjacency_list)), # call BFS and display
         relief="flat"
     )
     button_4.place(
@@ -148,7 +148,7 @@ def show_gui(adjacency_list):
         302.0,
         image=image_image_1
     )
-    window.resizable(False, False)
+    window.resizable(False, False) # prevent window from resizing 
     window.mainloop()
 
 # Placeholder locations (user input will be included later) ------------------------- important!!!!
