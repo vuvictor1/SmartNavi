@@ -158,14 +158,16 @@ goal_location = "Park"
 # Function to update the canvas search results
 def display_result(canvas, path, algorithm_name): # expects both BFS and DFS paths
     if path:
-        result = f"{algorithm_name}: Path found within {len(path)-1} stops: {path}" # print out # of stops and shows path
+        formatted_path = ' '.join(map(str, path)) # take out unwanted characters from string
+        result = f"{algorithm_name}: Path within {len(path)-1} stops \n{formatted_path}" # print out # of stops and shows path
     else:
-        result = f"{algorithm_name}: No path found."
+        result = f"{algorithm_name}: No path was found."
     canvas.delete("result_text") # clear previous text on the 
+
     # Display the new result text
     canvas.create_text(
-        100, 
-        100, 
+        425, 
+        325, 
         anchor="sw",
         text=result,
         fill="#000000",
