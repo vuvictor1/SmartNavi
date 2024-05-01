@@ -9,7 +9,6 @@
    This File: gui.py
    Description: Graphical output of pathfinding algorithims. Collects user input. 
 ********************************************************************************"""  
-
 from pathlib import Path
 import networkx as nx
 from tkinter import Tk, Canvas, Button, PhotoImage, StringVar, OptionMenu, Label
@@ -50,7 +49,6 @@ def show_gui(adjacency_list):
         for adj_building, weight in adj_list.items():
             G.add_edge(building, adj_building, weight=weight)
 
-
     # Create a Matplotlib figure and axis with adjusted size
     fig, ax = plt.subplots(figsize=(20, 11))  # Adjusted figure size
 
@@ -64,8 +62,6 @@ def show_gui(adjacency_list):
     pos = nx.get_node_attributes(G, 'pos')
     nx.draw(G, pos, with_labels=False, node_size=300, node_color='#4258CA', font_size=8)
     nx.draw_networkx_edges(G, pos, width=3, edge_color="#4258CA")
-
-
 
     # Create a canvas widget to embed the Matplotlib figure
     canvas = FigureCanvasTkAgg(fig, master=window)
@@ -88,7 +84,6 @@ def show_gui(adjacency_list):
     canvas_shapes.create_rectangle(0.0, 0.0, 1400.0, 100.0, fill="#FD8B21", outline="")
     canvas_shapes.create_text(40.0, 9.0, anchor="nw", text="Smart Campus Navigation System", fill="#000000", font=("JosefinSansRoman Bold", 40))
 
-
     canvas_general = Canvas(
         window,
         bg="pink",
@@ -101,9 +96,9 @@ def show_gui(adjacency_list):
     canvas_general.place(x=10, y=100)  # Adjusted placement to the far left
 
     # Add rectangles using Canvas widget's create_rectangle method
-    canvas_general.create_text(40.0, 10.0, anchor="nw", text="If you need an accessible path click the button bellow:", fill="black", font=("JosefinSansRoman Bold", 18))
-    canvas_general.create_text(40.0, 200.0, anchor="nw", text="Pick your start and end points from the drop downs:", fill="black", font=("JosefinSansRoman Bold", 18))
-    canvas_general.create_text(40.0, 350.0, anchor="nw", text="Choose your preferred algorithm:", fill="black", font=("JosefinSansRoman Bold", 18))
+    canvas_general.create_text(40.0, 10.0, anchor="nw", text="For accessible paths click the button below:", fill="black", font=("JosefinSansRoman Bold", 18))
+    canvas_general.create_text(40.0, 200.0, anchor="nw", text="Pick start and end points from the drop down menu:", fill="black", font=("JosefinSansRoman Bold", 18))
+    canvas_general.create_text(40.0, 350.0, anchor="nw", text="Choose preferred algorithm:", fill="black", font=("JosefinSansRoman Bold", 18))
 
 
     button_image_Access = PhotoImage(file=relative_to_assets("ButtonAccess.png"))
@@ -111,7 +106,7 @@ def show_gui(adjacency_list):
         image=button_image_Access,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("Access clicked"),
+        command=lambda: print("Access clicked"), # Placeholder will need accessibility path later
         relief="flat"
     )
     ButtonAccess.place(
@@ -120,7 +115,6 @@ def show_gui(adjacency_list):
         width=472.0,
         height=70.0
     )
-
 
     # Button configurations
     button_image_BFS = PhotoImage(file=relative_to_assets("ButtonBFS.png"))
@@ -190,10 +184,10 @@ def show_gui(adjacency_list):
 
     # Create Dropdown menus
     drop1 = OptionMenu(window, clicked1, *options, command=update_buildings)
-    drop1.place(x=200, y=350)  # Adjusted placement below the first button
+    drop1.place(x=100, y=350)  # Adjusted placement below the first button
 
     drop2 = OptionMenu(window, clicked2, *options, command=update_buildings)
-    drop2.place(x=300, y=350)  # Adjusted placement below the second button
+    drop2.place(x=350, y=350)  # Adjusted placement below the second button
 
     # Create a separate canvas widget to display the result text
     canvas_result = Canvas(
@@ -212,7 +206,7 @@ def show_gui(adjacency_list):
 
 def display_result(canvas, path, algorithm_name):  # expects both BFS and DFS paths
     if path:
-        formatted_path = ' '.join(map(str, path))  # take out unwanted characters from string
+        formatted_path = '\n'.join(map(str, path))  # take out unwanted characters from string
         result = f"{algorithm_name}: Path within {len(path) - 1} stops \n{formatted_path}"  # print out # of stops and shows path
     else:
         result = f"{algorithm_name}: No path was found."

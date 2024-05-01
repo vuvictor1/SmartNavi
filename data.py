@@ -4,10 +4,9 @@
 
    Other Authors: 
 
-
    Program Information:
    This File: data.py
-   Description: Coordinates of each building used withing Graph Figure
+   Description: Coordinates of each building used within the Graph Figure.
 ********************************************************************************"""  
 
 buildings = ("Parking A", "Parking G", "Arboretum", "Children's Center", "Parking & Transportation Office",
@@ -62,5 +61,4 @@ coordinates = {
     "Nutwood Parking": (70, 80),
     "Mihaylo Hall": (340, 50),
     "Parking C": (445, 50),
-
 }
