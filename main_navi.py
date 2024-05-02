@@ -15,13 +15,24 @@ import gui # Call the GUI file
 def main():
     # Placeholder list (will need to rely on Robert's graph model) ---------------------------------------- important!!!!
     adjacency_list = {
-    "Parking A": {"Parking G": 5, "Titan Sport Complex": 3, "Parking & Transportation Office": 2, "A-South Parking": 7, "Children's Center": 8},
-    "Parking G": {"Parking A": 5, "Titan Sport Complex": 2, "Parking & Transportation Office": 9},
+    "Linda 01": {"Parking A to G 02" : 1,},
+    "Linda 02": {"Linda 01" : 1, "Parking G to Linda 01" : 1},
+    "StateLinda": {"State 01" : 1,},
+    "State 01": {"Parking A": 1, "StateLinda": 1,},
+    "Parking A": {"Parking A to G 01": 1, "State 01": 1,},
+    "Parking A to G 01": {"Parking A": 1, "Parking A to G 02": 1, "Titan Sporting Complex": 1},
+    "Parking A to G 02": {"Parking A to G 01": 1, "Parking G": 1},
+    "Parking G": {"Parking A to G 02": 1,  "Titan Sport Complex": 2, "Linda 01" :1},
+    "Parking G to Linda 01" :{"Parking G" : 1,},
+    "Titan Sport Complex": {"Parking A": 3, "Parking G": 2, "Arboretum": 4},
+
+
+
     "Arboretum": {"Housing Office": 3, "Residence Halls": 2, "Titan Sport Complex": 4, "Ruby Gerontology Center": 6, "Titan House": 2},
     "Children's Center": {"A-South Parking": 2, "Parking & Transportation Office": 6, "Parking A": 8},
     "Parking & Transportation Office": {"Parking A": 2, "Parking G": 9, "Children's Center": 6},
     "A-South Parking": {"Parking A": 7, "Children's Center": 2, "Parking & Transportation Office": 1},
-    "Titan Sport Complex": {"Parking A": 3, "Parking G": 2, "Arboretum": 4},
+
     "Housing Office": {"Arboretum": 3, "Residence Halls": 2, "Ruby Gerontology Center": 6},
     "Residence Halls": {"Arboretum": 2, "Housing Office": 2, "Ruby Gerontology Center": 7},
     "Corporation Yard": {"Titan House": 8, "University Police": 3},
