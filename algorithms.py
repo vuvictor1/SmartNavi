@@ -40,7 +40,7 @@ def bfs_search(start_location, goal_location, adjacency_list): # (ex: throwing a
     return None # in case goal could not be reached
 
 # DFS path between two locations, but does not guarantee shortest path
-def dfs_search(start_location, goal_location, adjacency_list): # (ex: go far but head back if a deadend is reached and choose another path)
+def dfs_search(start_location, goal_location, adjacency_list): # (ex: go far but head back if a dead-end is reached and choose another path)
     stack = [start_location] # add the starting location in the stack
     visited = set() # set of visited locations
     visited.add(start_location) # mark start location as visited
