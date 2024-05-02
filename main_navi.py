@@ -21,6 +21,8 @@ def main():
         "Linda 02": {"Linda 01": 1, "Parking G to Linda 01": 1},
         "StateLinda": {"State 01": 1, },
         "State 01": {"Parking A": 1, "StateLinda": 1, },
+        "State 02": {"State 01": 1, "Corporate Drive 01": 1},
+        "CorpWest": {"Corporate Drive 01: 1", },
         "Parking A": {"Parking A to G 01": 1, "State 01": 1, },
         "Parking A to G 01": {"Parking A": 1, "Parking A to G 02": 1, "Titan Sporting Complex": 1},
         "Parking A to G 02": {"Parking A to G 01": 1, "Parking G": 1},
