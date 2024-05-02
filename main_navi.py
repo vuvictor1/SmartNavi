@@ -18,12 +18,17 @@ def main():
     # Paths and Nodes
     adjacency_list = {
 
+    "Art 01": {"StateArt": 1, }
     "Corporate Drive 01": {"State 02": 1, "Corporation Yard": 1,},
     "GymWest": {"WestCamp": 1, "Titan Sport Complex": 3, "Ruby Gerontology Center": 6},
     "Gym Drive 01": {"GymWest": 1, "State College Parking": 1, "Corporation Yard": 1},
     "GymState" : {"Gym Drive 01": 1, "State 02": 1},
     "State 01": {"Parking A": 1},
-    "State 02": {"State 01": 1, "Corporate Drive 01": 1},
+    "State 02": {"State 01": 1, "Corporate Drive 01": 1, "State 03": 1,},
+    "State 03": {"Golleher Alumni House": 1, "State 02": 1, "State 04": 1,},
+    "State 04": {"State 03": 1, "Titan Student Union": 2, "StateArt":2},
+    "StateArt": {"State 04": 2,},
+    "StateNut": {"StateArt": 1,},
     "WestCamp": {"Corporate Drive 01": 1, "Titan Sport Complex": 3,},
     "Yorba 00" : {"Yorba 01": 1,},
     "Yorba 01" : {"Parking G": 1,},
@@ -53,7 +58,7 @@ def main():
         "McCarthy Hall": {"Greenhouse Complex": 7, "University Hall": 2},
         "Mihaylo Hall": {"Nutwood Parking": 5, "Parking C": 4},
         "Nutwood Parking": {"Dan Black Hall": 2, "Mihaylo Hall": 5},
-        "Parking A": {"A-South Parking": 7, "Parking & Transportation Office": 2, "Children's Center": 8},
+        "Parking A": {"A-South Parking": 1.5, "Parking & Transportation Office": 1.5, "Children's Center": 1.25},
         "Parking C": {"Mihaylo Hall": 4},
         "Parking E": {},
         "Parking F": {"Humanities/ Social Sciences": 3, "Eastside Parking": 4},
