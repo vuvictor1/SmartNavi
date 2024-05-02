@@ -10,7 +10,7 @@
    Algorithm for pathfinding. Also incorporates GUI, utilizing a graph model.
 ********************************************************************************"""  
 import gui # Call the GUI file
-import data 
+
 # Main function for execution
 def main():
     # Placeholder list (will need to rely on Robert's graph model) ---------------------------------------- important!!!!

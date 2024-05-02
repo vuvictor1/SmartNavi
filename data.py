@@ -9,6 +9,7 @@
    Description: Coordinates of each building used within the Graph Figure.
 ********************************************************************************"""  
 
+# List of builiings and their names
 buildings = ("Parking A", "Parking G", "Arboretum", "Children's Center", "Parking & Transportation Office",
              "A-South Parking", "Titan Sport Complex", "Housing Office", "Residence Halls", "Corporation Yard",
              "Titan House", "Ruby Gerontology Center", "Student Housing", "University Police", "State College Parking",
@@ -19,6 +20,7 @@ buildings = ("Parking A", "Parking G", "Arboretum", "Children's Center", "Parkin
              "Greenhouse Complex", "McCarthy Hall", "University Hall", "Carl's Jr", "Langsdorf Hall", "Dan Black Hall",
              "Nutwood Parking", "Mihaylo Hall", "Parking C")
 
+# Assign each building a coordinate with x and y values
 coordinates = {
     "Parking A": (75, 600),
     "Parking G": (185, 650),
