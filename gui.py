@@ -120,7 +120,7 @@ def show_gui(adjacency_list):
         relief="flat"
     )
     ButtonBFS.place(
-        x=450,
+        x=455,
         y=500,
         width=200.0,
         height=120.0
@@ -137,7 +137,7 @@ def show_gui(adjacency_list):
         relief="flat"
     )
     ButtonDFS.place(
-        x=230,
+        x=235,
         y=500,
         width=200.0,
         height=120.0
@@ -154,7 +154,7 @@ def show_gui(adjacency_list):
         relief="flat"
     )
     ButtonDA.place(
-        x=10,
+        x=15,
         y=500,
         width=200.0,
         height=120.0
@@ -190,7 +190,7 @@ def show_gui(adjacency_list):
         highlightthickness=0,
         relief="ridge"
     )
-    canvas_result.place(x=10, y=700) 
+    canvas_result.place(x=10, y=650) 
 
     window.resizable(False, False) # prevent window from being resized
     window.mainloop() # keep running the GUI
