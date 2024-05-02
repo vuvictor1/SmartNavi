@@ -10,19 +10,55 @@
 ********************************************************************************"""  
 
 # List of builiings and their names
-buildings = ("Parking A", "Parking G", "Arboretum", "Children's Center", "Parking & Transportation Office",
-             "A-South Parking", "Titan Sport Complex", "Housing Office", "Residence Halls", "Corporation Yard",
-             "Titan House", "Ruby Gerontology Center", "Student Housing", "University Police", "State College Parking",
-             "Student Rec Center", "Kinesiology/ Health Science", "Student Heath/ Counseling Center",
-             "Engineering/ Computer Science", "Titan Student Union", "Parking E", "Becker Amphitheater",
-             "Commons", "Pollak Library", "Education Classroom", "Parking I", "Visual Arts",
-             "Clayes Performing Arts Center", "Quad", "Humanities/ Social Sciences", "Parking F", "Eastside Parking",
-             "Greenhouse Complex", "McCarthy Hall", "University Hall", "Carl's Jr", "Langsdorf Hall", "Dan Black Hall",
-             "Nutwood Parking", "Mihaylo Hall", "Parking C",
+buildings = ("A-South Parking",
+             "Arboretum",
+             "Becker Amphitheater",
+             "Carl's Jr",
+             "Children's Center",
+             "Clayes Performing Arts Center",
+             "Commons",
+             "Corporation Yard",
+             "Dan Black Hall",
+             "Eastside Parking",
+             "Education Classroom",
+             "Engineering/ Computer Science",
+             "Greenhouse Complex",
+             "Housing Office",
+             "Humanities/ Social Sciences",
+             "Kinesiology/ Health Science",
+             "Langsdorf Hall",
+             "McCarthy Hall",
+             "Mihaylo Hall",
+             "Nutwood Parking",
+             "Parking A",
+             "Parking C",
+             "Parking E",
+             "Parking F",
+             "Parking G",
+             "Parking I",
+             "Parking & Transportation Office",
+             "Pollak Library",
+             "Quad",
+             "Residence Halls",
+             "State College Parking",
+             "Student Heath/ Counseling Center",
+             "Student Housing",
+             "Titan House",
+             "Titan Sport Complex",
+             "University Police",
+              "Ruby Gerontology Center",
+             "Student Rec Center",
+             "Titan Student Union",
+             "University Hall",
+             "Visual Arts",
 
              # Added paths here
-
-             "State 01", "State 02", "Corporate Drive 01", "WestCamp", "GymWest")
+             "Corporate Drive 01",
+             "Gym Drive 01"
+             "GymWest",
+             "State 01",
+             "State 02",
+             "WestCamp",)
 
 # Assign each building a coordinate with x and y values
 coordinates = {
@@ -33,6 +69,7 @@ coordinates = {
     "Corporate Drive 01":(70, 435),
     "WestCamp":(125, 435),
     "GymWest":(125, 360),
+    "Gym Drive 01": (70, 360),
 
 
 
@@ -45,7 +82,7 @@ coordinates = {
     "Titan Sport Complex": (215, 460),
     "Housing Office": (390, 500),
     "Residence Halls": (425, 500),
-    "Corporation Yard": (60, 390),
+    "Corporation Yard": (70, 390),
     "Titan House": (295, 370),
     "Ruby Gerontology Center": (340, 360),
     "Student Housing": (390, 400),

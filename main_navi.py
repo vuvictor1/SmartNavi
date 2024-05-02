@@ -22,9 +22,10 @@ def main():
 
     "State 02": {"State 01": 1, "Corporate Drive 01": 1},
 
-    "Corporate Drive 01": {"State 02": 1},
+    "Corporate Drive 01": {"State 02": 1, "Corporation Yard": 1,},
     "WestCamp": {"Corporate Drive 01": 1, "Titan Sport Complex": 3,},
     "GymWest": {"WestCamp": 1, "Titan Sport Complex": 3, "Ruby Gerontology Center": 6},
+    "Gym Drive 01": {"GymWest": 1, "Corporation Yard": 1},
 
     #    "Parking A": {"Parking A to G 01": 1, "State 01": 1, },
     #    "Parking A to G 01": {"Parking A": 1, "Parking A to G 02": 1, "Titan Sporting Complex": 1},
@@ -44,7 +45,7 @@ def main():
         "Commons": {"Becker Amphitheater": 1, "Pollak Library": 3},
         "Children's Center": {"A-South Parking": 1, "Parking A": 2},
         "Clayes Performing Arts Center": {"Visual Arts": 2, "Quad": 3},
-        "Corporation Yard": {"Titan House": 8,},
+        "Corporation Yard": {"Corporate Drive 01": 1,},
         "Dan Black Hall": {"Langsdorf Hall": 3, "Nutwood Parking": 2},
         "Eastside Parking": {"Parking F": 4, "Greenhouse Complex": 6},
         "Education Classroom": {"Pollak Library": 2, "Parking I": 1},
@@ -72,7 +73,7 @@ def main():
         "Student Heath/ Counseling Center": {"Kinesiology/ Health Science": 5, "Engineering/ Computer Science": 6},
         "Student Housing": {"University Police": 1, "State College Parking": 3},
         "Student Rec Center": {"State College Parking": 5, "Kinesiology/ Health Science": 4},
-        "Titan House": {"Corporation Yard": 8, "University Police": 9, "Arboretum": 2},
+        "Titan House": {"University Police": 9, "Arboretum": 2},
         "Titan Sport Complex": {"Parking A": 3, "Parking G": 2, "Arboretum": 4},
         "Titan Student Union": {"Engineering/ Computer Science": 8, "Parking E": 2},
         "University Hall": {"McCarthy Hall": 2, "Carl's Jr": 8},
