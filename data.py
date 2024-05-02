@@ -10,7 +10,25 @@
 ********************************************************************************"""  
 
 # List of builiings and their names
-buildings = ("A-South Parking",
+
+
+buildings = (
+
+    # Added paths here, to have hidden
+    "Corporate Drive 01",
+    "Gym Drive 01",
+    "GymState",
+    "GymWest",
+    "State 01",
+    "State 02",
+    "WestCamp",
+    "Yorba 00",
+    "Yorba 01",
+    "Yorba 02",
+
+
+             # All buildings
+             "A-South Parking",
              "Arboretum",
              "Becker Amphitheater",
              "Carl's Jr",
@@ -22,6 +40,7 @@ buildings = ("A-South Parking",
              "Eastside Parking",
              "Education Classroom",
              "Engineering/ Computer Science",
+             "Golleher Alumni House",
              "Greenhouse Complex",
              "Housing Office",
              "Humanities/ Social Sciences",
@@ -50,15 +69,7 @@ buildings = ("A-South Parking",
              "Student Rec Center",
              "Titan Student Union",
              "University Hall",
-             "Visual Arts",
-
-             # Added paths here
-             "Corporate Drive 01",
-             "Gym Drive 01",
-             "GymWest",
-             "State 01",
-             "State 02",
-             "WestCamp",)
+             "Visual Arts", )
 
 # Assign each building a coordinate with x and y values
 coordinates = {
@@ -67,11 +78,13 @@ coordinates = {
     "State 01": (7, 585),
     "State 02": (7, 435),
     "Corporate Drive 01":(70, 435),
-    "WestCamp":(125, 435),
     "GymWest":(125, 360),
     "Gym Drive 01": (70, 360),
-
-
+    "GymState": (7, 360),
+    "WestCamp": (125, 435),
+    "Yorba 00": (140, 690),
+    "Yorba 01": (140, 650),
+    "Yorba 02": (140, 620),
 
     "Arboretum": (350, 550),
     "A-South Parking": (70, 470),
@@ -85,6 +98,7 @@ coordinates = {
     "Eastside Parking": (420, 140),
     "Education Classroom": (290, 220),
     "Engineering/ Computer Science": (355, 280),
+    "Golleher Alumni House": (35, 270),
     "Greenhouse Complex": (175, 105),
     "Housing Office": (390, 500),
     "Humanities/ Social Sciences": (290, 160),
