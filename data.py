@@ -13,6 +13,27 @@
 
 
 buildings = (
+
+    # Added paths here, to have hidden
+    "Art 01",
+    "Corporate Drive 01",
+    "Gym Drive 01",
+    "GymState",
+    "GymWest",
+    "NutWood 01",
+    "NutWood 02",
+    "State 01",
+    "State 02",
+    "State 03",
+    "State 04",
+    "StateArt",
+    "StateNut",
+    "WestCamp",
+    "Yorba 00",
+    "Yorba 01",
+    "Yorba 02",
+
+
              # All buildings
              "A-South Parking",
              "Arboretum",
@@ -55,28 +76,7 @@ buildings = (
              "Student Rec Center",
              "Titan Student Union",
              "University Hall",
-             "Visual Arts",
-
-             # Added paths here, to have hidden
-             "Art 01",
-             "Corporate Drive 01",
-             "Gym Drive 01",
-             "GymState",
-             "GymWest",
-             "NutWood 01",
-             "NutWood 02",
-             "State 01",
-             "State 02",
-             "State 03",
-             "State 04",
-             "StateArt",
-             "StateNut",
-             "WestCamp",
-             "Yorba 00",
-             "Yorba 01",
-             "Yorba 02",
-
-)
+             "Visual Arts", )
 
 # Assign each building a coordinate with x and y values
 coordinates = {
@@ -146,18 +146,133 @@ coordinates = {
 
 # Accessibility list
 # List of buildings for the alt list
+alt_list = {
+    "Qu": {"Langsdorf Ha": 2},
+    "Langsdorf Ha": {"Qu": 2, "McCarthy Ha": 1},
+    "McCarthy Ha": {"Langsdorf Ha": 1, "Titan Student Uni": 3},
+    "Titan Student Uni": {"McCarthy Ha": 3},
+    }
 alt_buildings = (
-    "Quad",
-    "Langsdorf Hall",
-    "McCarthy Hall",
-    "Titan Student Union"
-)
+
+    # Added paths here, to have hidden
+    "Art 01",
+    "Corporate Drive 01",
+    "Gym Drive 01",
+    "GymState",
+    "GymWest",
+    "NutWood 01",
+    "NutWood 02",
+    "State 02",
+    "State 03",
+    "State 04",
+    "StateArt",
+    "StateNut",
+    "WestCamp",
+
+
+
+             # All buildings
+             "A-South Parking",
+             "Arboretum",
+             "Becker Amphitheater",
+             "Carl's Jr",
+             "Children's Center",
+             "Clayes Performing Arts Center",
+             "Commons",
+             "Corporation Yard",
+             "Dan Black Hall",
+             "Eastside Parking",
+             "Education Classroom",
+             "Engineering/ Computer Science",
+             "Golleher Alumni House",
+             "Greenhouse Complex",
+             "Housing Office",
+             "Humanities/ Social Sciences",
+             "Kinesiology/ Health Science",
+             "Langsdorf Hall",
+             "McCarthy Hall",
+             "Mihaylo Hall",
+             "Nutwood Parking Structure",
+             "Parking C",
+             "Parking E",
+             "Parking F",
+             "Parking I",
+             "Pollak Library",
+             "Quad",
+             "Residence Halls",
+             "State College Parking",
+             "Student Heath/ Counseling Center",
+             "Student Housing",
+             "Titan House",
+             "Titan Sport Complex",
+             "University Police",
+             "Ruby Gerontology Center",
+             "Student Rec Center",
+             "Titan Student Union",
+             "University Hall",
+             "Visual Arts", )
+
 
 # Coordinates for the alt list buildings
 alt_coordinates = {
-    "Quad": (230, 160),
+
+    # added path positions here
+    "Art 01": (75, 110),
+    "NutWood 01":(125, 15),
+    "NutWood 02":(375, 15),
+    "State 02": (7, 435),
+    "State 03": (7, 280),
+    "State 04": (7, 250),
+    "StateArt": (7, 110),
+    "StateNut": (7, 15),
+    "Corporate Drive 01":(70, 435),
+    "GymWest":(125, 360),
+    "Gym Drive 01": (70, 360),
+    "GymState": (7, 360),
+    "WestCamp": (125, 435),
+
+
+    "Arboretum": (350, 550),
+    "A-South Parking": (70, 470),
+    "Becker Amphitheater": (120, 205),
+    "Carl's Jr": (305, 90),
+    "Children's Center": (100, 490),
+    "Clayes Performing Arts Center": (175, 160),
+    "Commons": (180, 220),
+    "Corporation Yard": (70, 390),
+    "Dan Black Hall": (225, 80),
+    "Eastside Parking": (420, 140),
+    "Education Classroom": (290, 220),
+    "Engineering/ Computer Science": (355, 280),
+    "Golleher Alumni House": (35, 280),
+    "Greenhouse Complex": (175, 105),
+    "Housing Office": (390, 500),
+    "Humanities/ Social Sciences": (290, 160),
+    "Kinesiology/ Health Science": (205, 320),
     "Langsdorf Hall": (280, 65),
     "McCarthy Hall": (225, 115),
-    "Titan Student Union": (80, 250)
+    "Mihaylo Hall": (340, 50),
+    "Nutwood Parking Structure": (70, 80),
+    "Parking C": (125, 35),
+    "Parking E": (420, 240),
+    "Parking F": (375, 140),
+    "Parking I": (350, 220),
+    "Pollak Library": (230, 220),
+    "Quad": (230, 160),
+    "Residence Halls": (425, 500),
+    "Ruby Gerontology Center": (340, 360),
+    "State College Parking": (75, 320),
+    "Student Heath/ Counseling Center": (300, 320),
+    "Student Housing": (390, 400),
+    "Student Rec Center": (135, 320),
+    "Titan House": (295, 370),
+    "Titan Sport Complex": (215, 460),
+    "Titan Student Union": (80, 250),
+    "University Hall": (290, 115),
+    "University Police": (35, 320),
+    "Visual Arts": (60, 160),
 }
+
+
+
 
