@@ -1,15 +1,4 @@
-"""********************************************************************************  
-   Author Information:
-   Victor Vu (vuvictor@csu.fullerton.edu)
-
-   Other Authors: 
-
-   Program Information:
-   This File: algorithms.py
-   Description: Implementation of BFS, DFS, and Dijkstra's Algorithm for 
-   otimal route pathfinding. 
-********************************************************************************"""  
-from collections import deque # Allow function to deque for BFS
+from collections import deque  # Allow function to deque for BFS
 import heapq
 
 # BFS path between two locations by shortest amount of stops (unweighted)
@@ -66,37 +55,38 @@ def dfs_search(start_location, goal_location, adjacency_list): # (ex: go far but
                 visited.add(neighbor_location) # mark neighbors as visited 
                 parent[neighbor_location] = current_location # move to the new location
 
-    def da(start_location, goal_location, adjacency_list):
-        pq = [(0, start_location)]  # Priority queue with (distance, location)
-        visited = set()  # Set of visited locations
-        distance = {start_location: 0}  # Shortest distance to each location
-        parent = {}  # Track parent of each node
-
-        while pq:
-            dist, current_location = heapq.heappop(pq)  # Pop the node with the smallest distance
-            if current_location == goal_location:  # If goal is reached
-                path = []  # Construct the path
-                while current_location != start_location:
-                    path.append(current_location)  # Current location is now part of path
-                    current_location = parent[current_location]  # Track path traveled
-                path.append(start_location)  # Start is also part of path
-                path.reverse()  # Reverse from goal to find correct start order
-                return path, distance[goal_location]  # Return path and shortest distance
-
-            if current_location in visited:  # Skip already visited nodes
-                continue
-            visited.add(current_location)
-
-            # Explore neighbors
-            for neighbor_location, edge_weight in adjacency_list[current_location].items():
-                if neighbor_location in visited:  # Skip already visited neighbors
-                    continue
-                new_dist = dist + edge_weight
-                if new_dist < distance.get(neighbor_location, float('inf')):
-                    distance[neighbor_location] = new_dist
-                    parent[neighbor_location] = current_location
-                    heapq.heappush(pq, (new_dist, neighbor_location))
-
-        return None, float('inf')  # In case goal could not be reached
-
     return None # in case goal could not be reached
+
+# Dijkstra's Algorithm (DA) for finding shortest path between two locations
+def da_search(start_location, goal_location, adjacency_list):
+    pq = [(0, start_location)]  # Priority queue with (distance, location)
+    visited = set()  # Set of visited locations
+    distance = {start_location: 0}  # Shortest distance to each location
+    parent = {}  # Track parent of each node
+
+    while pq:
+        dist, current_location = heapq.heappop(pq)  # Pop the node with the smallest distance
+        if current_location == goal_location:  # If goal is reached
+            path = []  # Construct the path
+            while current_location != start_location:
+                path.append(current_location)  # Current location is now part of path
+                current_location = parent[current_location]  # Track path traveled
+            path.append(start_location)  # Start is also part of path
+            path.reverse()  # Reverse from goal to find correct start order
+            return path, distance[goal_location]  # Return path and shortest distance
+
+        if current_location in visited:  # Skip already visited nodes
+            continue
+        visited.add(current_location)
+
+        # Explore neighbors
+        for neighbor_location, edge_weight in adjacency_list[current_location].items():
+            if neighbor_location in visited:  # Skip already visited neighbors
+                continue
+            new_dist = dist + edge_weight
+            if new_dist < distance.get(neighbor_location, float('inf')):
+                distance[neighbor_location] = new_dist
+                parent[neighbor_location] = current_location
+                heapq.heappush(pq, (new_dist, neighbor_location))
+
+    return None, float('inf')  # In case goal could not be reached
