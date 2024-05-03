@@ -149,11 +149,11 @@ def show_gui(adjacency_list, alt_list):
 
             use_accessibility_adjacency_list.set(True) # toggle the button
         
-        redraw_graph(ax)
+        #redraw_graph(ax)
 
     def redraw_graph(ax): #---------------------------------------------------- need this to redraw plz halp me!!!!!!!!!!
         # Clear previous graph
-        #ax.clear() disabled for now
+        # ax.clear() disabled for now
         
             # Add nodes to the graph
         for building in buildings:
@@ -242,7 +242,7 @@ def show_gui(adjacency_list, alt_list):
         image=button_image_da,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("DA clicked"),
+        command=lambda: display_result(canvas_result, dfs_search(start_building, end_building, adjacency_list), "DA"),
         relief="flat"
     )
     button_da.place(
