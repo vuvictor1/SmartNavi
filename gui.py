@@ -114,6 +114,7 @@ def show_gui(adjacency_list, alt_list):
             adjacency_list = alt_list  # make alt list the new list
             buildings = alt_buildings  # make alt buildings the new list
             coordinates = alt_coordinates  # make alt coordinates the new list
+            
 
             # Update dropdown menu options
             options = list(map(str, buildings))
@@ -126,8 +127,8 @@ def show_gui(adjacency_list, alt_list):
             use_accessibility_adjacency_list.set(False) # toggle the button
             # Add new options
             for option in options:
-                drop1['menu'].add_command(label=option, command=lambda value=option: clicked1.set(value))
-                drop2['menu'].add_command(label=option, command=lambda value=option: clicked2.set(value))
+                drop1['menu'].add_command(label=option, command=lambda value=option: (clicked1.set(value), update_buildings()))
+                drop2['menu'].add_command(label=option, command=lambda value=option: (clicked2.set(value), update_buildings()))
         else:
             adjacency_list = reg_list  # else restore the original
             buildings = reg_buildings
@@ -144,8 +145,8 @@ def show_gui(adjacency_list, alt_list):
             use_accessibility_adjacency_list.set(False) # toggle the button
             # Add new options
             for option in options:
-                drop1['menu'].add_command(label=option, command=lambda value=option: clicked1.set(value))
-                drop2['menu'].add_command(label=option, command=lambda value=option: clicked2.set(value))
+                drop1['menu'].add_command(label=option, command=lambda value=option: (clicked1.set(value), update_buildings()))
+                drop2['menu'].add_command(label=option, command=lambda value=option: (clicked2.set(value), update_buildings()))
 
             use_accessibility_adjacency_list.set(True) # toggle the button
         
