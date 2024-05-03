@@ -13,27 +13,6 @@
 
 
 buildings = (
-
-    # Added paths here, to have hidden
-    "Art 01",
-    "Corporate Drive 01",
-    "Gym Drive 01",
-    "GymState",
-    "GymWest",
-    "NutWood 01",
-    "NutWood 02",
-    "State 01",
-    "State 02",
-    "State 03",
-    "State 04",
-    "StateArt",
-    "StateNut",
-    "WestCamp",
-    "Yorba 00",
-    "Yorba 01",
-    "Yorba 02",
-
-
              # All buildings
              "A-South Parking",
              "Arboretum",
@@ -76,7 +55,28 @@ buildings = (
              "Student Rec Center",
              "Titan Student Union",
              "University Hall",
-             "Visual Arts", )
+             "Visual Arts",
+
+             # Added paths here, to have hidden
+             "Art 01",
+             "Corporate Drive 01",
+             "Gym Drive 01",
+             "GymState",
+             "GymWest",
+             "NutWood 01",
+             "NutWood 02",
+             "State 01",
+             "State 02",
+             "State 03",
+             "State 04",
+             "StateArt",
+             "StateNut",
+             "WestCamp",
+             "Yorba 00",
+             "Yorba 01",
+             "Yorba 02",
+
+)
 
 # Assign each building a coordinate with x and y values
 coordinates = {
