@@ -83,6 +83,8 @@ def main():
 
 
     # Additional Paths for traversals
+
+        "-----------Paths---------": {},
         "Art 01": {"StateArt": 1, "Visual Arts": 1, "Nutwood Parking Structure": 1 },
         "Corporate Drive 01": {"State 02": 1, "Corporation Yard": 1,},
         "GymWest": {"WestCamp": 1, "Titan Sport Complex": 3, "Ruby Gerontology Center": 6},

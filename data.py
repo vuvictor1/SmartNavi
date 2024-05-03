@@ -14,26 +14,6 @@
 
 buildings = (
 
-    # Added paths here, to have hidden
-    "Art 01",
-    "Corporate Drive 01",
-    "Gym Drive 01",
-    "GymState",
-    "GymWest",
-    "NutWood 01",
-    "NutWood 02",
-    "State 01",
-    "State 02",
-    "State 03",
-    "State 04",
-    "StateArt",
-    "StateNut",
-    "WestCamp",
-    "Yorba 00",
-    "Yorba 01",
-    "Yorba 02",
-
-
              # All buildings
              "A-South Parking",
              "Arboretum",
@@ -76,29 +56,31 @@ buildings = (
              "Student Rec Center",
              "Titan Student Union",
              "University Hall",
-             "Visual Arts", )
+             "Visual Arts",
+
+             # Added paths here, to have hidden
+             "-----------Paths---------",
+             "Art 01",
+             "Corporate Drive 01",
+             "Gym Drive 01",
+             "GymState",
+             "GymWest",
+             "NutWood 01",
+             "NutWood 02",
+             "State 01",
+             "State 02",
+             "State 03",
+             "State 04",
+             "StateArt",
+             "StateNut",
+             "WestCamp",
+             "Yorba 00",
+             "Yorba 01",
+             "Yorba 02",
+)
 
 # Assign each building a coordinate with x and y values
 coordinates = {
-
-    # added path positions here
-    "Art 01": (75, 110),
-    "NutWood 01":(125, 15),
-    "NutWood 02":(375, 15),
-    "State 01": (7, 585),
-    "State 02": (7, 435),
-    "State 03": (7, 280),
-    "State 04": (7, 250),
-    "StateArt": (7, 110),
-    "StateNut": (7, 15),
-    "Corporate Drive 01":(70, 435),
-    "GymWest":(125, 360),
-    "Gym Drive 01": (70, 360),
-    "GymState": (7, 360),
-    "WestCamp": (125, 435),
-    "Yorba 00": (140, 690),
-    "Yorba 01": (140, 650),
-    "Yorba 02": (140, 620),
 
     "Arboretum": (350, 550),
     "A-South Parking": (70, 470),
@@ -142,6 +124,27 @@ coordinates = {
     "University Hall": (290, 115),
     "University Police": (35, 320),
     "Visual Arts": (60, 160),
+
+                    # added path positions here
+    "-----------Paths---------":(75, 110),
+    "Art 01": (75, 110),
+    "NutWood 01": (125, 15),
+    "NutWood 02": (375, 15),
+    "State 01": (7, 585),
+    "State 02": (7, 435),
+    "State 03": (7, 280),
+    "State 04": (7, 250),
+    "StateArt": (7, 110),
+    "StateNut": (7, 15),
+    "Corporate Drive 01": (70, 435),
+    "GymWest": (125, 360),
+    "Gym Drive 01": (70, 360),
+    "GymState": (7, 360),
+    "WestCamp": (125, 435),
+    "Yorba 00": (140, 690),
+    "Yorba 01": (140, 650),
+    "Yorba 02": (140, 620),
+
 }
 
 # Accessibility list
