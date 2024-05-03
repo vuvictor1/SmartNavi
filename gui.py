@@ -62,7 +62,7 @@ def show_gui(adjacency_list, alt_list):
 
     # Draw the graph on top of the image
     pos = nx.get_node_attributes(g, 'pos')
-    nx.draw(g, pos, with_labels=False, node_size=100, node_color='#4258CA', font_size=8)
+    nx.draw(g, pos, with_labels=False, node_size=100, node_color='#4258CA', font_size=6)
     nx.draw_networkx_edges(g, pos, width=3, edge_color="#000000")
 
     # Create a canvas widget to embed the Matplotlib figure
@@ -204,7 +204,7 @@ def show_gui(adjacency_list, alt_list):
         ax.imshow(background, extent=[0, 500, 0, 700])  # Redraw the background image
         pos = nx.get_node_attributes(g, 'pos')  # Get node positions
         nx.draw(g, pos, with_labels=False, node_size=100, node_color='#4258CA', font_size=8)  # Redraw the graph
-        nx.draw_networkx_edges(g, pos, width=3, edge_color="blue")  # Redraw the edges
+        nx.draw_networkx_edges(g, pos, width=3, edge_color="#000000")  # Redraw the edges
         canvas.draw()
 
 
