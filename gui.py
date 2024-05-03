@@ -152,10 +152,10 @@ def show_gui(adjacency_list, alt_list):
         redraw_graph(ax)
 
     def redraw_graph(ax): #---------------------------------------------------- need this to redraw plz halp me!!!!!!!!!!
-        # Clear previous graph
-        #ax.clear() disabled for now
-        
-            # Add nodes to the graph
+            # Clear previous graph
+        ax.clear()
+
+        # Add nodes to the graph
         for building in buildings:
             g.add_node(building)
 
@@ -168,7 +168,7 @@ def show_gui(adjacency_list, alt_list):
             for adj_building, weight in adj_list.items():
                 g.add_edge(building, adj_building, weight=weight)
 
-        fig, ax = plt.subplots(figsize=(20, 11))  # create a Matplotlib figure and axis with adjusted size
+        # Draw the background image
         background = plt.imread('assets/frame0/WEBSITEMAP.jpg')  # load the background image
         ax.imshow(background, extent=[0, 500, 0, 700])  # plot the image as background
 
@@ -176,11 +176,6 @@ def show_gui(adjacency_list, alt_list):
         pos = nx.get_node_attributes(g, 'pos')
         nx.draw(g, pos, with_labels=False, node_size=100, node_color='#4258CA', font_size=8)
         nx.draw_networkx_edges(g, pos, width=3, edge_color="#000000")
-
-        # Create a canvas widget to embed the Matplotlib figure
-        canvas = FigureCanvasTkAgg(fig, master=window)
-        canvas.draw()
-        canvas.get_tk_widget().place(x=0, y=0)  # adjusted placement to the far left
 
         # Update the canvas
         canvas.draw()
