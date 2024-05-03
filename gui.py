@@ -102,12 +102,12 @@ def show_gui(adjacency_list, alt_list):
     # Add rectangles around buttons
     canvas_general.create_text(40.0, 10.0, anchor="nw", text="For accessible paths click the button below:",
                                fill="black",
-                               font=("JosefinSansRoman Bold", 18))
+                               font=("JosefinSansRoman Bold", 14))
     canvas_general.create_text(40.0, 200.0, anchor="nw", text="Pick start and end points from the drop down menu:",
                                fill="black",
-                               font=("JosefinSansRoman Bold", 18))
+                               font=("JosefinSansRoman Bold", 14))
     canvas_general.create_text(40.0, 350.0, anchor="nw", text="Choose preferred algorithm:", fill="black",
-                               font=("JosefinSansRoman Bold", 18))
+                               font=("JosefinSansRoman Bold", 14))
     
     use_accessibility_adjacency_list = BooleanVar(value=True) # Bool to toggle reg and alt list
     # Switch between regular and accessibility adjacency list ---------------------------------------
