@@ -148,31 +148,8 @@ coordinates = {
 }
 
 # Accessibility list
-# List of buildings for the alt list
-alt_list = {
-    "Qu": {"Langsdorf Ha": 2},
-    "Langsdorf Ha": {"Qu": 2, "McCarthy Ha": 1},
-    "McCarthy Ha": {"Langsdorf Ha": 1, "Titan Student Uni": 3},
-    "Titan Student Uni": {"McCarthy Ha": 3},
-    }
+
 alt_buildings = (
-
-    # Added paths here, to have hidden
-    "Art 01",
-    "Corporate Drive 01",
-    "Gym Drive 01",
-    "GymState",
-    "GymWest",
-    "NutWood 01",
-    "NutWood 02",
-    "State 02",
-    "State 03",
-    "State 04",
-    "StateArt",
-    "StateNut",
-    "WestCamp",
-
-
 
              # All buildings
              "A-South Parking",
@@ -213,26 +190,28 @@ alt_buildings = (
              "Student Rec Center",
              "Titan Student Union",
              "University Hall",
-             "Visual Arts", )
+             "Visual Arts",
+
+             # Added paths here, to have hidden
+             "-----------Paths---------",
+             "Art 01",
+             "Corporate Drive 01",
+             "Gym Drive 01",
+             "GymState",
+             "GymWest",
+             "NutWood 01",
+             "NutWood 02",
+             "State 02",
+             "State 03",
+             "State 04",
+             "StateArt",
+             "StateNut",
+             "WestCamp",
+)
 
 
 # Coordinates for the alt list buildings
 alt_coordinates = {
-
-    # added path positions here
-    "Art 01": (75, 110),
-    "NutWood 01":(125, 15),
-    "NutWood 02":(375, 15),
-    "State 02": (7, 435),
-    "State 03": (7, 280),
-    "State 04": (7, 250),
-    "StateArt": (7, 110),
-    "StateNut": (7, 15),
-    "Corporate Drive 01":(70, 435),
-    "GymWest":(125, 360),
-    "Gym Drive 01": (70, 360),
-    "GymState": (7, 360),
-    "WestCamp": (125, 435),
 
 
     "Arboretum": (350, 550),
@@ -274,6 +253,23 @@ alt_coordinates = {
     "University Hall": (290, 115),
     "University Police": (35, 320),
     "Visual Arts": (60, 160),
+
+    # added path positions here
+    "-----------Paths---------": (75, 110),
+    "Art 01": (75, 110),
+    "NutWood 01": (125, 15),
+    "NutWood 02": (375, 15),
+    "State 02": (7, 435),
+    "State 03": (7, 280),
+    "State 04": (7, 250),
+    "StateArt": (7, 110),
+    "StateNut": (7, 15),
+    "Corporate Drive 01": (70, 435),
+    "GymWest": (125, 360),
+    "Gym Drive 01": (70, 360),
+    "GymState": (7, 360),
+    "WestCamp": (125, 435),
+
 }
 
 
