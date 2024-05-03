@@ -15,10 +15,12 @@
 buildings = (
 
     # Added paths here, to have hidden
+    "Art 01",
     "Corporate Drive 01",
     "Gym Drive 01",
     "GymState",
     "GymWest",
+    "NutWood 01",
     "State 01",
     "State 02",
     "State 03",
@@ -52,7 +54,7 @@ buildings = (
              "Langsdorf Hall",
              "McCarthy Hall",
              "Mihaylo Hall",
-             "Nutwood Parking",
+             "Nutwood Parking Structure",
              "Parking A",
              "Parking C",
              "Parking E",
@@ -79,6 +81,8 @@ buildings = (
 coordinates = {
 
     # added path positions here
+    "Art 01": (75, 110),
+    "NutWood 01":(125, 15),
     "State 01": (7, 585),
     "State 02": (7, 435),
     "State 03": (7, 280),
@@ -114,10 +118,10 @@ coordinates = {
     "Langsdorf Hall": (280, 65),
     "McCarthy Hall": (225, 115),
     "Mihaylo Hall": (340, 50),
-    "Nutwood Parking": (70, 80),
+    "Nutwood Parking Structure": (70, 80),
     "Parking & Transportation Office": (33, 470),
     "Parking A": (75, 585),
-    "Parking C": (445, 50),
+    "Parking C": (125, 35),
     "Parking E": (420, 240),
     "Parking F": (360, 140),
     "Parking G": (185, 650),
