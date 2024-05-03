@@ -99,17 +99,4 @@ def dfs_search(start_location, goal_location, adjacency_list): # (ex: go far but
 
         return None, float('inf')  # In case goal could not be reached
 
-    # Example usage:
-    # adjacency_list = {
-    #     'A': {'B': 5, 'C': 3},
-    #     'B': {'A': 5, 'C': 2, 'D': 6},
-    #     'C': {'A': 3, 'B': 2, 'D': 7},
-    #     'D': {'B': 6, 'C': 7}
-    # }
-    # start = 'A'
-    # goal = 'D'
-    # path, shortest_distance = dijkstra_shortest_path(start, goal, adjacency_list)
-    # print("Shortest Path:", path)
-    # print("Shortest Distance:", shortest_distance)
-
     return None # in case goal could not be reached
