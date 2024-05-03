@@ -143,3 +143,21 @@ coordinates = {
     "University Police": (35, 320),
     "Visual Arts": (60, 160),
 }
+
+# Accessibility list
+# List of buildings for the alt list
+alt_buildings = (
+    "Quad",
+    "Langsdorf Hall",
+    "McCarthy Hall",
+    "Titan Student Union"
+)
+
+# Coordinates for the alt list buildings
+alt_coordinates = {
+    "Quad": (230, 160),
+    "Langsdorf Hall": (280, 65),
+    "McCarthy Hall": (225, 115),
+    "Titan Student Union": (80, 250)
+}
+

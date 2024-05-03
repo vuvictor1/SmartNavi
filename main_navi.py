@@ -28,24 +28,24 @@ def main():
         "Clayes Performing Arts Center": {"Visual Arts": 2, "Quad": 3},
         "Corporation Yard": {"Corporate Drive 01": 1,},
         "Dan Black Hall": {"Langsdorf Hall": 3, "Nutwood Parking Structure": 2},
-        "Eastside Parking": {"Parking F": 1, "Parking E": 2, },
+        "Eastside Parking": {"Parking F": 1, },
         "Education Classroom": {"Pollak Library": 2, "Parking I": 1},
-        "Engineering/ Computer Science": {"Student Heath/ Counseling Center": 6, "Titan Student Union": 8, "Parking I": 1},
+        "Engineering/ Computer Science": {"Student Heath/ Counseling Center": 6, "Titan Student Union": 8},
         "Golleher Alumni House": {"University Police": 1, "Titan Student Union": 1, "State College Parking":1,},
-        "Greenhouse Complex": {"McCarthy Hall": 2, "Nutwood Parking Structure":1.5},
+        "Greenhouse Complex": {"McCarthy Hall": 7},
         "Housing Office": {"Arboretum": 3, "Residence Halls": 2, "Ruby Gerontology Center": 6},
         "Humanities/ Social Sciences": {"Quad": 2, "Parking F": 3},
         "Kinesiology/ Health Science": {"Student Rec Center": 1, "Student Heath/ Counseling Center": 1.5, "Titan Student Union":2,},
         "Langsdorf Hall": {"Carl's Jr": 4, "Dan Black Hall": 3},
-        "McCarthy Hall": {"Greenhouse Complex": 2, "University Hall": 2},
+        "McCarthy Hall": {"Greenhouse Complex": 7, "University Hall": 2},
         "Mihaylo Hall": {"Nutwood Parking Structure": 5, "Parking C": 4},
-        "Nutwood Parking Structure": {"Dan Black Hall": 2, "Art 01": 1, "Parking C":1, "Greenhouse Complex": 1.5},
+        "Nutwood Parking Structure": {"Dan Black Hall": 2, "Art 01": 1, "Parking C":1},
         "Parking A": {"A-South Parking": 1.5, "Parking & Transportation Office": 1.5, "Children's Center": 1.25},
         "Parking C": {"Mihaylo Hall": 3, "NutWood 01": .5, "Nutwood Parking Structure": 1},
-        "Parking E": {"Eastside Parking": 2, "Parking I": 1,},
-        "Parking F": {"Humanities/ Social Sciences": 3, "Eastside Parking": 4,  "NutWood 02": 2, "Parking I": 1.5},
+        "Parking E": {},
+        "Parking F": {"Humanities/ Social Sciences": 3, "Eastside Parking": 4,  "NutWood 02": 2},
         "Parking G": {},
-        "Parking I": {"Education Classroom": 1, "Visual Arts": 5, "Parking F": 1.5, "Parking E": 1, "Engineering/ Computer Science": 1},
+        "Parking I": {"Education Classroom": 1, "Visual Arts": 5},
         "Parking & Transportation Office": {"Parking A": 2},
         "Pollak Library": {"Commons": 3, "Education Classroom": 2},
         "Quad": {"Clayes Performing Arts Center": 3, "Humanities/ Social Sciences": 2},
@@ -64,7 +64,7 @@ def main():
         "Visual Arts": {"Parking I": 5, "Clayes Performing Arts Center": 2, "Art 01": 1, "Titan Student Union" :1,  "Becker Amphitheater":1.5,},
 
 
-# Additional Paths for traversals
+    # Additional Paths for traversals
     "Art 01": {"StateArt": 1, "Visual Arts": 1, "Nutwood Parking Structure": 1 },
     "Corporate Drive 01": {"State 02": 1, "Corporation Yard": 1,},
     "GymWest": {"WestCamp": 1, "Titan Sport Complex": 3, "Ruby Gerontology Center": 6},
@@ -82,11 +82,16 @@ def main():
     "Yorba 00" : {"Yorba 01": 1,},
     "Yorba 01" : {"Parking G": 1,},
     "Yorba 02" : {"Parking A": 2, "Yorba 01" :1,},
-
-
 }
-    
-    gui.show_gui(adjacency_list) # pass adjacency list to the GUI
+    # Accessibility list
+    alt_list = {
+    "Quad": {"Humanities/ Social Sciences": 2},  
+    "Langsdorf Hall": {"Carl's Jr": 5},  
+    "McCarthy Hall": {"University Hall": 3},  
+    "Titan Student Union": {"Visual Arts": 1.5},
+    }
+
+    gui.show_gui(adjacency_list, alt_list) # pass adjacency list to the GUI
 
 # Call main
 if __name__ == "__main__":

@@ -11,22 +11,25 @@
 ********************************************************************************"""  
 from pathlib import Path  # Create a path to the image file
 import networkx as nx  # Used to create a graph and populate it with nodes
-from tkinter import Tk, Canvas, Button, PhotoImage, StringVar, OptionMenu, Label  # Use necessary widgets for GUI
+from tkinter import Tk, Canvas, Button, PhotoImage, StringVar, OptionMenu, Label, BooleanVar  # Use necessary widgets for GUI
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg  # Embed the Matplotlib figure in the Tkinter window
-from matplotlib.figure import Figure
-# Note: does not seem to be used yet -----------------------------------------------
+from matplotlib.figure import Figure # Note: does not seem to be used yet -----------------------------------------------
 import matplotlib.pyplot as plt  # Plot the graph on the Matplotlib figure
 import pandas as pd  # Note: does not seem to be used yet ------------------------------------------------------------
 from data import *  # Import all data from data.py
 from algorithms import bfs_search  # Import external function BFS
 from algorithms import dfs_search  # Import external function DFS
 # Function to output the GUI
-
-
-def show_gui(adjacency_list):
+def show_gui(adjacency_list, alt_list):
     # Define path for assets
     output_path = Path(__file__).parent
     assets_path = output_path / "assets" / "frame0"
+    global reg_list 
+    global reg_buildings
+    global reg_coordinates
+    reg_list = adjacency_list # store copy of original list
+    reg_buildings = buildings # store copy of original buildings
+    reg_coordinates = coordinates # store copy of original coordinates 
 
     def relative_to_assets(path: str) -> Path:
         return assets_path / Path(path)
@@ -102,6 +105,85 @@ def show_gui(adjacency_list):
                                font=("JosefinSansRoman Bold", 18))
     canvas_general.create_text(40.0, 350.0, anchor="nw", text="Choose preferred algorithm:", fill="black",
                                font=("JosefinSansRoman Bold", 18))
+    
+    use_accessibility_adjacency_list = BooleanVar(value=True) # Bool to toggle reg and alt list
+    # Switch between regular and accessibility adjacency list --------------------------------------- sorry i need this here for me to find this function faster
+    def toggle_adjacency_list():
+        global adjacency_list, buildings, coordinates, options
+        if use_accessibility_adjacency_list.get():
+            adjacency_list = alt_list  # make alt list the new list
+            buildings = alt_buildings  # make alt buildings the new list
+            coordinates = alt_coordinates  # make alt coordinates the new list
+
+            # Update dropdown menu options
+            options = list(map(str, buildings))
+            clicked1.set(buildings[0])  # Set the first building as default for both dropdowns
+            clicked2.set(buildings[0])
+            # Clear previous options
+            drop1['menu'].delete(0, 'end')
+            drop2['menu'].delete(0, 'end')
+
+            use_accessibility_adjacency_list.set(False) # toggle the button
+            # Add new options
+            for option in options:
+                drop1['menu'].add_command(label=option, command=lambda value=option: clicked1.set(value))
+                drop2['menu'].add_command(label=option, command=lambda value=option: clicked2.set(value))
+        else:
+            adjacency_list = reg_list  # else restore the original
+            buildings = reg_buildings
+            coordinates = reg_coordinates
+
+            # Update dropdown menu options
+            options = list(map(str, buildings))
+            clicked1.set(buildings[0])  # Set the first building as default for both dropdowns
+            clicked2.set(buildings[0])
+            # Clear previous options
+            drop1['menu'].delete(0, 'end')
+            drop2['menu'].delete(0, 'end')
+
+            use_accessibility_adjacency_list.set(False) # toggle the button
+            # Add new options
+            for option in options:
+                drop1['menu'].add_command(label=option, command=lambda value=option: clicked1.set(value))
+                drop2['menu'].add_command(label=option, command=lambda value=option: clicked2.set(value))
+
+            use_accessibility_adjacency_list.set(True) # toggle the button
+        
+        redraw_graph(ax)
+
+    def redraw_graph(ax): #---------------------------------------------------- need this to redraw plz halp me!!!!!!!!!!
+        # Clear previous graph
+        #ax.clear() disabled for now
+        
+            # Add nodes to the graph
+        for building in buildings:
+            g.add_node(building)
+
+        # Add coordinates to the nodes
+        for building, coord in coordinates.items():
+            g.nodes[building]['pos'] = coord
+
+        # Populate the graph with edges and weights
+        for building, adj_list in adjacency_list.items():
+            for adj_building, weight in adj_list.items():
+                g.add_edge(building, adj_building, weight=weight)
+
+        fig, ax = plt.subplots(figsize=(20, 11))  # create a Matplotlib figure and axis with adjusted size
+        background = plt.imread('assets/frame0/WEBSITEMAP.jpg')  # load the background image
+        ax.imshow(background, extent=[0, 500, 0, 700])  # plot the image as background
+
+        # Draw the graph on top of the image
+        pos = nx.get_node_attributes(g, 'pos')
+        nx.draw(g, pos, with_labels=False, node_size=100, node_color='#4258CA', font_size=8)
+        nx.draw_networkx_edges(g, pos, width=3, edge_color="#000000")
+
+        # Create a canvas widget to embed the Matplotlib figure
+        canvas = FigureCanvasTkAgg(fig, master=window)
+        canvas.draw()
+        canvas.get_tk_widget().place(x=0, y=0)  # adjusted placement to the far left
+
+        # Update the canvas
+        canvas.draw()
 
     # Accessibility Button
     button_image_access = PhotoImage(file=relative_to_assets("ButtonAccess.png"))
@@ -109,7 +191,7 @@ def show_gui(adjacency_list):
         image=button_image_access,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("Access clicked"),
+        command=toggle_adjacency_list,
         # Placeholder will need accessibility path later --------------------------------
         relief="flat"
     )
@@ -175,8 +257,8 @@ def show_gui(adjacency_list):
     clicked1 = StringVar()
     clicked2 = StringVar()
     # Initial menu text with defaults
-    clicked1.set("Building 1") 
-    clicked2.set("Building 2")  
+    clicked1.set(buildings[0]) 
+    clicked2.set(buildings[0])  
 
     # Function to update start_building and end_building
     def update_buildings(*args):
