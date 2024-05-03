@@ -209,37 +209,7 @@ def show_gui(adjacency_list, alt_list):
 
 
 
-    def delete_random_node():  
-        if len(g.nodes) > 0:
-            node_to_delete = random.choice(list(g.nodes))
-            g.remove_node(node_to_delete)
-            # Redraw the graph after deleting the node
-            ax.clear()
-            ax.imshow(background, extent=[0, 500, 0, 700])
-            pos = nx.get_node_attributes(g, 'pos')
-            nx.draw(g, pos, with_labels=False, node_size=100, node_color='#4258CA', font_size=8)
-            nx.draw_networkx_edges(g, pos, width=3, edge_color="#000000")
-            canvas.draw()
-        else:
-            print("Cannot delete node. Graph is empty.")
-
-
-
-    button_image_delete = PhotoImage(file=relative_to_assets("Group 1Delete.png"))
-    button_delete = Button(
-        image=button_image_delete,
-        borderwidth=0,
-        highlightthickness=0,
-        command=delete_random_node,
-        relief="flat"
-    )
-    button_delete.place(  
-        x=400,
-        y=420,
-        width=60.0,
-        height=50.0
-    )
-
+   
     # Accessibility Button
     button_image_access = PhotoImage(file=relative_to_assets("ButtonAccess.png"))
     button_access = Button(
