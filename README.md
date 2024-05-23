@@ -7,7 +7,7 @@ SmartNavi is a Python tool that integrates algorithms for pathfinding and uses a
 
 The system includes a GUI with several buttons for selecting preferred algorithms, starting and ending nodes, and an option to use an alternative adjacency list containing only accessible locations. When accessibility is selected, the graph is redrawn and updated to reflect the new options. The final output displayed to the user includes the number of stops and the exact path taken.
 
-Algorithm Recommendations:
+**Algorithm Recommendations:**
 - BFS: Generally Moderate - Chooses the path with the least amount of stops, but may not be optimal in terms of distance. (Unweighted)
 - DFS: Generally Slower - Chooses the farest route but allows access to more scenery or buildings if needed by the user. (Unweighted)
 - Dijkstra: Generally Faster - Chooses the most optimal route based on time or distance. (Weighted)
