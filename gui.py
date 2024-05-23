@@ -57,7 +57,7 @@ def show_gui(adjacency_list, alt_list):
             g.add_edge(building, adj_building, weight=weight)
 
     fig, ax = plt.subplots(figsize=(20, 11))  # create a Matplotlib figure and axis with adjusted size
-    background = plt.imread('assets/frame0/WEBSITEMAP.jpg')  # load the background image
+    background = plt.imread('assets/WEBSITEMAP.jpg')  # load the background image
     ax.imshow(background, extent=[0, 500, 0, 700])  # plot the image as background
 
     # Draw the graph on top of the image
