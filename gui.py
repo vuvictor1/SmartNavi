@@ -26,7 +26,7 @@ import random
 def show_gui(adjacency_list, alt_list):
     # Define path for assets
     output_path = Path(__file__).parent
-    assets_path = output_path / "assets" / "frame0"
+    assets_path = output_path / "assets"
     global reg_list 
     global reg_buildings
     global reg_coordinates
