@@ -3,24 +3,29 @@
    Kiara Guerra
 
    Other Authors: 
-   Victor Vu 
+   Victor Vu and Robert Petersen
 
    Program Information:
    This File: gui.py
    Description: Graphical output of pathfinding algorithims. Collects user input. 
-********************************************************************************"""  
-from pathlib import Path  # Create a path to the image file
-import networkx as nx  # Used to create a graph and populate it with nodes
-from tkinter import Tk, Canvas, Button, PhotoImage, StringVar, OptionMenu, Label, BooleanVar  # Use necessary widgets for GUI
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg  # Embed the Matplotlib figure in the Tkinter window
-from matplotlib.figure import Figure # Note: does not seem to be used yet -----------------------------------------------
-import matplotlib.pyplot as plt  # Plot the graph on the Matplotlib figure
-import pandas as pd  # Note: does not seem to be used yet ------------------------------------------------------------
-from data import *  # Import all data from data.py
-from algorithms import bfs_search  # Import external function BFS
-from algorithms import dfs_search  # Import external function DFS
-import random
 
+   Copyright (C) 2024 Victor V. Vu, Kirara Guerra and Robert Petersen
+   This program is free software: you can redistribute it and/or modify it under
+   the terms of the GNU General Public License version 3 as published by the
+   Free Software Foundation. This program is distributed in the hope that it
+   will be useful, but WITHOUT ANY WARRANTY without even the implied Warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+   Public License for more details. A copy of the GNU General Public License v3
+   is available here: <https://www.gnu.org/licenses/>.
+********************************************************************************"""  
+from pathlib import Path # Create a path to the image file
+import networkx as nx # Used to create a graph and populate it with nodes
+from tkinter import Tk, Canvas, Button, PhotoImage, StringVar, OptionMenu, BooleanVar # Use necessary widgets for GUI
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg # Embed the Matplotlib figure in the Tkinter window
+import matplotlib.pyplot as plt # Plot the graph on the Matplotlib figure
+from data import * # Import all data from data.py
+from algorithms import bfs_search # Import external function BFS
+from algorithms import dfs_search # Import external function DFS
 
 # Function to output the GUI
 def show_gui(adjacency_list, alt_list):
@@ -34,6 +39,7 @@ def show_gui(adjacency_list, alt_list):
     reg_buildings = buildings # store copy of original buildings
     reg_coordinates = coordinates # store copy of original coordinates 
 
+    # Function to create a path relative to the assets folder
     def relative_to_assets(path: str) -> Path:
         return assets_path / Path(path)
 
@@ -68,19 +74,19 @@ def show_gui(adjacency_list, alt_list):
     # Create a canvas widget to embed the Matplotlib figure
     canvas = FigureCanvasTkAgg(fig, master=window)
     canvas.draw()
-    canvas.get_tk_widget().place(x=0, y=0)  # adjusted placement to the far left
+    canvas.get_tk_widget().place(x=0, y=0) # adjusted placement to the far left
 
     # Create a separate canvas for drawing shapes
     canvas_shapes = Canvas(
         window,
         bg="red",
-        height=100,  # adjusts canvas height
+        height=100, # adjusts canvas height
         width=1400,   
         bd=0,
         highlightthickness=0,
         relief="ridge"
     )
-    canvas_shapes.place(x=0, y=0)  # set placement to the far left
+    canvas_shapes.place(x=0, y=0) # set placement to the far left
 
     # Add rectangles using Canvas widget's create_rectangle method
     canvas_shapes.create_rectangle(0.0, 0.0, 1400.0, 100.0, fill="#FD8B21", outline="")
@@ -97,7 +103,7 @@ def show_gui(adjacency_list, alt_list):
         highlightthickness=0,
         relief="ridge"
     )
-    canvas_general.place(x=0, y=100)  # set placement to the far left
+    canvas_general.place(x=0, y=100) # set placement to the far left
 
     # Add rectangles around buttons
     canvas_general.create_text(40.0, 10.0, anchor="nw", text="For accessible paths click the button below:",
@@ -109,8 +115,9 @@ def show_gui(adjacency_list, alt_list):
     canvas_general.create_text(40.0, 350.0, anchor="nw", text="Choose preferred algorithm:", fill="black",
                                font=("JosefinSansRoman Bold", 14))
     
-    use_accessibility_adjacency_list = BooleanVar(value=True) # Bool to toggle reg and alt list
-    # Switch between regular and accessibility adjacency list ---------------------------------------
+    use_accessibility_adjacency_list = BooleanVar(value=True) # bool to toggle reg and alt list
+
+    # Switch between regular and accessibility adjacency list 
     def toggle_adjacency_list():
         global adjacency_list, buildings, coordinates, options
         if use_accessibility_adjacency_list.get():
@@ -118,98 +125,100 @@ def show_gui(adjacency_list, alt_list):
             adjacency_list = alt_list  # make alt list the new list
             buildings = alt_buildings  # make alt buildings the new list
             coordinates = alt_coordinates  # make alt coordinates the new list
-            
 
             # Update dropdown menu options
             options = list(map(str, buildings))
-            clicked1.set(buildings[0])  # Set the first building as default for both dropdowns
+            clicked1.set(buildings[0]) #set first building as default for both dropdowns
             clicked2.set(buildings[0])
+
             # Clear previous options
             drop1['menu'].delete(0, 'end')
             drop2['menu'].delete(0, 'end')
 
             use_accessibility_adjacency_list.set(False) # toggle the button
+
             # Add new options
             for option in options:
                 drop1['menu'].add_command(label=option, command=lambda value=option: (clicked1.set(value), update_buildings()))
                 drop2['menu'].add_command(label=option, command=lambda value=option: (clicked2.set(value), update_buildings()))
-        else:
-            graph_to_reg()
-            adjacency_list = reg_list  # else restore the original
+
+        else: # else if the button is toggled again, restore originals
+            graph_to_reg() # restore the original graph
+            adjacency_list = reg_list 
             buildings = reg_buildings
             coordinates = reg_coordinates
 
             # Update dropdown menu options
             options = list(map(str, buildings))
-            clicked1.set(buildings[0])  # Set the first building as default for both dropdowns
+            clicked1.set(buildings[0]) # set first building as default for both dropdowns
             clicked2.set(buildings[0])
+
             # Clear previous options
             drop1['menu'].delete(0, 'end')
             drop2['menu'].delete(0, 'end')
 
             use_accessibility_adjacency_list.set(False) # toggle the button
+
             # Add new options
             for option in options:
                 drop1['menu'].add_command(label=option, command=lambda value=option: (clicked1.set(value), update_buildings()))
                 drop2['menu'].add_command(label=option, command=lambda value=option: (clicked2.set(value), update_buildings()))
-
             use_accessibility_adjacency_list.set(True) # toggle the button
         
-        #redraw_graph(ax)\
+    # Redraw_graph(ax)
     def clear_graph():
         g.clear()
 
+    # Redraw the graph with the regular adjacency list
     def graph_to_reg():
         clear_graph()
-        ax.clear()  # Clear the previous plot
+        ax.clear() # clear the previous plot
         g = nx.Graph()
 
-            # Add nodes to the graph
+        # Add nodes to the graph
         for building in reg_buildings:
                 g.add_node(building)
 
-            # Add coordinates to the nodes
+        # Add coordinates to the nodes
         for building, coord in reg_coordinates.items():
                 g.nodes[building]['pos'] = coord
 
-            # Populate the graph with edges and weights
+        # Populate the graph with edges and weights
         for building, adj_list in adjacency_list.items():
             for adj_building, weight in adj_list.items():
                 g.add_edge(building, adj_building, weight=weight)
 
-        ax.imshow(background, extent=[0, 500, 0, 700])  # Redraw the background image
-        pos = nx.get_node_attributes(g, 'pos')  # Get node positions
-        nx.draw(g, pos, with_labels=False, node_size=100, node_color='#4258CA', font_size=8)  # Redraw the graph
-        nx.draw_networkx_edges(g, pos, width=3, edge_color="#000000")  # Redraw the edges
-        canvas.draw()
+        ax.imshow(background, extent=[0, 500, 0, 700]) # redraw the background image
+        pos = nx.get_node_attributes(g, 'pos') # get node positions
+        nx.draw(g, pos, with_labels=False, node_size=100, node_color='#4258CA', font_size=8) # plot nodes
+        nx.draw_networkx_edges(g, pos, width=3, edge_color="#000000") # redraw the edges
+        canvas.draw() # add onto canvas
 
+    # Graph with alt adjacency list
     def graph_to_alt():
         clear_graph()
-        ax.clear()  # Clear the previous plot
+        ax.clear() # clear the previous plot
         g = nx.Graph()
 
-            # Add nodes to the graph
+        # Add nodes to the graph
         for building in alt_buildings:
             g.add_node(building)
 
-            # Add coordinates to the nodes
+        # Add coordinates to the nodes
         for building, coord in alt_coordinates.items():
             g.nodes[building]['pos'] = coord
 
-            # Populate the graph with edges and weights
+        # Populate the graph with edges and weights
         for building, adj_list in alt_list.items():
             for adj_building, weight in adj_list.items():
                 g.add_edge(building, adj_building, weight=weight)
 
-        ax.imshow(background, extent=[0, 500, 0, 700])  # Redraw the background image
-        pos = nx.get_node_attributes(g, 'pos')  # Get node positions
-        nx.draw(g, pos, with_labels=False, node_size=100, node_color='#4258CA', font_size=8)  # Redraw the graph
-        nx.draw_networkx_edges(g, pos, width=3, edge_color="#000000")  # Redraw the edges
+        ax.imshow(background, extent=[0, 500, 0, 700]) # redraw the background image
+        pos = nx.get_node_attributes(g, 'pos') # get node positions
+        nx.draw(g, pos, with_labels=False, node_size=100, node_color='#4258CA', font_size=8) # redraw the graph
+        nx.draw_networkx_edges(g, pos, width=3, edge_color="#000000") # redraw the edges
         canvas.draw()
 
-
-
-   
     # Accessibility Button
     button_image_access = PhotoImage(file=relative_to_assets("ButtonAccess.png"))
     button_access = Button(
@@ -217,10 +226,9 @@ def show_gui(adjacency_list, alt_list):
         borderwidth=0,
         highlightthickness=0,
         command=toggle_adjacency_list,
-        # Placeholder will need accessibility path later --------------------------------
         relief="flat"
     )
-    button_access.place(  # placement for the accessibility button
+    button_access.place( # placement for the accessibility button
         x=100,
         y=175,
         width=472.0,
@@ -277,10 +285,12 @@ def show_gui(adjacency_list, alt_list):
         height=110.0
     )
 
-    options = list(map(str, buildings))  # dropdown menu options
+    options = list(map(str, buildings)) # dropdown menu options
+
     # Datatype of menu text
     clicked1 = StringVar()
     clicked2 = StringVar()
+
     # Initial menu text with defaults
     clicked1.set(buildings[0]) 
     clicked2.set(buildings[0])  
@@ -309,19 +319,18 @@ def show_gui(adjacency_list, alt_list):
     )
     canvas_result.place(x=0, y=650) 
 
-    window.resizable(False, False)  # prevent window from being resized
-    window.mainloop()  # keep running the GUI
+    window.resizable(False, False) # prevent window from being resized
+    window.mainloop() # keep running the GUI
 
 
-def display_result(canvas, path, algorithm_name):  # expects both BFS and DFS paths
+def display_result(canvas, path, algorithm_name): # expects both BFS and DFS paths
     if path:
-        formatted_path = '\n'.join(map(str, path))  # take out unwanted characters from string
-        result = f"{algorithm_name}: Path within {len(path) - 1} stops \n{formatted_path}"
-        # print out # of stops and shows path
+        formatted_path = '\n'.join(map(str, path)) # take out unwanted characters from string
+        result = f"{algorithm_name}: Path within {len(path) - 1} stops \n{formatted_path}" # print out # of stops and shows path
     else:
         result = f"{algorithm_name}: No path was found."
 
-    canvas.delete("result_text")  # clear previous result text
+    canvas.delete("result_text") # clear previous result text
 
     # Display the new result text
     canvas.create_text(
@@ -331,5 +340,5 @@ def display_result(canvas, path, algorithm_name):  # expects both BFS and DFS pa
         text=result,
         fill="#000000",
         font=("Helvetica", 12),
-        tags="result_text"  # tagged to allow manipulation later
+        tags="result_text" # tagged to allow manipulation later
     )
