@@ -2,86 +2,91 @@
    Author Information:
    Kiara Guerra
 
-   Other Authors: 
+   Other Authors: Victor Vu and Robert Petersen
 
    Program Information:
    This File: data.py
-   Description: Coordinates of each building used within the Graph Figure.
-********************************************************************************"""  
+   Description: Hold coordinates of each building used within the Graph Figure.
+   
+   Copyright (C) 2024 Victor V. Vu, Kirara Guerra and Robert Petersen
+   This program is free software: you can redistribute it and/or modify it under
+   the terms of the GNU General Public License version 3 as published by the
+   Free Software Foundation. This program is distributed in the hope that it
+   will be useful, but WITHOUT ANY WARRANTY without even the implied Warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+   Public License for more details. A copy of the GNU General Public License v3
+   is available here: <https://www.gnu.org/licenses/>.
+********************************************************************************"""
 
 # List of builiings and their names
-
-
 buildings = (
+    # All buildings
+    "A-South Parking",
+    "Arboretum",
+    "Becker Amphitheater",
+    "Carl's Jr",
+    "Children's Center",
+    "Clayes Performing Arts Center",
+    "Commons",
+    "Corporation Yard",
+    "Dan Black Hall",
+    "Eastside Parking",
+    "Education Classroom",
+    "Engineering/ Computer Science",
+    "Golleher Alumni House",
+    "Greenhouse Complex",
+    "Housing Office",
+    "Humanities/ Social Sciences",
+    "Kinesiology/ Health Science",
+    "Langsdorf Hall",
+    "McCarthy Hall",
+    "Mihaylo Hall",
+    "Nutwood Parking Structure",
+    "Parking A",
+    "Parking C",
+    "Parking E",
+    "Parking F",
+    "Parking G",
+    "Parking I",
+    "Parking & Transportation Office",
+    "Pollak Library",
+    "Quad",
+    "Residence Halls",
+    "State College Parking",
+    "Student Heath/ Counseling Center",
+    "Student Housing",
+    "Titan House",
+    "Titan Sport Complex",
+    "University Police",
+    "Ruby Gerontology Center",
+    "Student Rec Center",
+    "Titan Student Union",
+    "University Hall",
+    "Visual Arts",
 
-             # All buildings
-             "A-South Parking",
-             "Arboretum",
-             "Becker Amphitheater",
-             "Carl's Jr",
-             "Children's Center",
-             "Clayes Performing Arts Center",
-             "Commons",
-             "Corporation Yard",
-             "Dan Black Hall",
-             "Eastside Parking",
-             "Education Classroom",
-             "Engineering/ Computer Science",
-             "Golleher Alumni House",
-             "Greenhouse Complex",
-             "Housing Office",
-             "Humanities/ Social Sciences",
-             "Kinesiology/ Health Science",
-             "Langsdorf Hall",
-             "McCarthy Hall",
-             "Mihaylo Hall",
-             "Nutwood Parking Structure",
-             "Parking A",
-             "Parking C",
-             "Parking E",
-             "Parking F",
-             "Parking G",
-             "Parking I",
-             "Parking & Transportation Office",
-             "Pollak Library",
-             "Quad",
-             "Residence Halls",
-             "State College Parking",
-             "Student Heath/ Counseling Center",
-             "Student Housing",
-             "Titan House",
-             "Titan Sport Complex",
-             "University Police",
-             "Ruby Gerontology Center",
-             "Student Rec Center",
-             "Titan Student Union",
-             "University Hall",
-             "Visual Arts",
-
-             # Added paths here, to have hidden
-             "-----------Paths---------",
-             "Art 01",
-             "Corporate Drive 01",
-             "Gym Drive 01",
-             "GymState",
-             "GymWest",
-             "NutWood 01",
-             "NutWood 02",
-             "State 01",
-             "State 02",
-             "State 03",
-             "State 04",
-             "StateArt",
-             "StateNut",
-             "WestCamp",
-             "Yorba 00",
-             "Yorba 01",
-             "Yorba 02",
+    # Added paths here, to have hidden
+    "-----------Paths---------",
+    "Art 01",
+    "Corporate Drive 01",
+    "Gym Drive 01",
+    "GymState",
+    "GymWest",
+    "NutWood 01",
+    "NutWood 02",
+    "State 01",
+    "State 02",
+    "State 03",
+    "State 04",
+    "StateArt",
+    "StateNut",
+    "WestCamp",
+    "Yorba 00",
+    "Yorba 01",
+    "Yorba 02",
 )
 
 # Assign each building a coordinate with x and y values
 coordinates = {
-
     "Arboretum": (350, 550),
     "A-South Parking": (70, 470),
     "Becker Amphitheater": (120, 205),
@@ -125,8 +130,8 @@ coordinates = {
     "University Police": (35, 320),
     "Visual Arts": (60, 160),
 
-                    # added path positions here
-    "-----------Paths---------":(75, 110),
+    # Added path positions here
+    "-----------Paths---------": (75, 110),
     "Art 01": (75, 110),
     "NutWood 01": (125, 15),
     "NutWood 02": (375, 15),
@@ -148,72 +153,67 @@ coordinates = {
 }
 
 # Accessibility list
-
 alt_buildings = (
+    # All buildings
+    "A-South Parking",
+    "Arboretum",
+    "Becker Amphitheater",
+    "Carl's Jr",
+    "Children's Center",
+    "Clayes Performing Arts Center",
+    "Commons",
+    "Corporation Yard",
+    "Dan Black Hall",
+    "Eastside Parking",
+    "Education Classroom",
+    "Engineering/ Computer Science",
+    "Golleher Alumni House",
+    "Greenhouse Complex",
+    "Housing Office",
+    "Humanities/ Social Sciences",
+    "Kinesiology/ Health Science",
+    "Langsdorf Hall",
+    "McCarthy Hall",
+    "Mihaylo Hall",
+    "Nutwood Parking Structure",
+    "Parking C",
+    "Parking E",
+    "Parking F",
+    "Parking I",
+    "Pollak Library",
+    "Quad",
+    "Residence Halls",
+    "State College Parking",
+    "Student Heath/ Counseling Center",
+    "Student Housing",
+    "Titan House",
+    "Titan Sport Complex",
+    "University Police",
+    "Ruby Gerontology Center",
+    "Student Rec Center",
+    "Titan Student Union",
+    "University Hall",
+    "Visual Arts",
 
-             # All buildings
-             "A-South Parking",
-             "Arboretum",
-             "Becker Amphitheater",
-             "Carl's Jr",
-             "Children's Center",
-             "Clayes Performing Arts Center",
-             "Commons",
-             "Corporation Yard",
-             "Dan Black Hall",
-             "Eastside Parking",
-             "Education Classroom",
-             "Engineering/ Computer Science",
-             "Golleher Alumni House",
-             "Greenhouse Complex",
-             "Housing Office",
-             "Humanities/ Social Sciences",
-             "Kinesiology/ Health Science",
-             "Langsdorf Hall",
-             "McCarthy Hall",
-             "Mihaylo Hall",
-             "Nutwood Parking Structure",
-             "Parking C",
-             "Parking E",
-             "Parking F",
-             "Parking I",
-             "Pollak Library",
-             "Quad",
-             "Residence Halls",
-             "State College Parking",
-             "Student Heath/ Counseling Center",
-             "Student Housing",
-             "Titan House",
-             "Titan Sport Complex",
-             "University Police",
-             "Ruby Gerontology Center",
-             "Student Rec Center",
-             "Titan Student Union",
-             "University Hall",
-             "Visual Arts",
-
-             # Added paths here, to have hidden
-             "-----------Paths---------",
-             "Art 01",
-             "Corporate Drive 01",
-             "Gym Drive 01",
-             "GymState",
-             "GymWest",
-             "NutWood 01",
-             "NutWood 02",
-             "State 02",
-             "State 03",
-             "State 04",
-             "StateArt",
-             "StateNut",
-             "WestCamp",
+    # Added paths here, to have hidden
+    "-----------Paths---------",
+    "Art 01",
+    "Corporate Drive 01",
+    "Gym Drive 01",
+    "GymState",
+    "GymWest",
+    "NutWood 01",
+    "NutWood 02",
+    "State 02",
+    "State 03",
+    "State 04",
+    "StateArt",
+    "StateNut",
+    "WestCamp",
 )
-
 
 # Coordinates for the alt list buildings
 alt_coordinates = {
-
-
     "Arboretum": (350, 550),
     "A-South Parking": (70, 470),
     "Becker Amphitheater": (120, 205),
@@ -254,7 +254,7 @@ alt_coordinates = {
     "University Police": (35, 320),
     "Visual Arts": (60, 160),
 
-    # added path positions here
+    # Added path positions here
     "-----------Paths---------": (75, 110),
     "Art 01": (75, 110),
     "NutWood 01": (125, 15),
@@ -269,9 +269,4 @@ alt_coordinates = {
     "Gym Drive 01": (70, 360),
     "GymState": (7, 360),
     "WestCamp": (125, 435),
-
 }
-
-
-
-
