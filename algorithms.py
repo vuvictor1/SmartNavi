@@ -1,3 +1,24 @@
+"""*******************************************************************************  
+   Author Information:
+   Name: Victor V. Vu
+   Email: vuvictor@csu.fullerton.edu
+
+   Major Contributors: Kirara Guerra and Robert Petersen
+
+   Program Information:
+   This File: algorithms.py   
+   Description: Contains pathfinding algorithms to recommend a route. 
+   Implements Breadth First Search, Depth First Search and Dijkstra's algorithm.
+
+   Copyright (C) 2024 Victor V. Vu, Kirara Guerra and Robert Petersen
+   This program is free software: you can redistribute it and/or modify it under
+   the terms of the GNU General Public License version 3 as published by the
+   Free Software Foundation. This program is distributed in the hope that it
+   will be useful, but WITHOUT ANY WARRANTY without even the implied Warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+   Public License for more details. A copy of the GNU General Public License v3
+   is available here: <https://www.gnu.org/licenses/>.
+*******************************************************************************"""
 from collections import deque  # Allow function to deque for BFS
 import heapq # Import priority queue for DA
 
