@@ -1,7 +1,8 @@
 # SmartNavi
 Campus navigation system to find the most optimal path for different locations.
 
-**Overview**
+**Overview:**
+
 SmartNavi is a Python tool that integrates algorithms for pathfinding and uses an adjacency list to store locations. The adjacency list contains nodes representing locations, which are then plotted onto a graph. Additionally, sub-nodes are implemented to account for valid paths and avoid obstacles such as walls.
 
 The system includes a GUI with several buttons for selecting preferred algorithms, starting and ending nodes, and an option to use an alternative adjacency list containing only accessible locations. When accessibility is selected, the graph is redrawn and updated to reflect the new options. The final output displayed to the user includes the number of stops and the exact path taken.
